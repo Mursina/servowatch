@@ -36,3 +36,9 @@ python -m monitor_service
 ```
 python -m app
 ```
+
+### Elasticsearch Configuration
+
+Installation guide is available [here](https://www.elastic.co/guide/en/elasticsearch/reference/8.10/install-elasticsearch.html)
+
+Access elasticsearch via http://localhost:9200

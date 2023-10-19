@@ -1,4 +1,11 @@
 from flask import Flask, request, jsonify
+from elasticsearch import Elasticsearch
+
+# Elasticsearch connection
+es = Elasticsearch([{'host': 'localhost', 'port': 9200, 'scheme': 'http'}])
+
+# Define the Elasticsearch index name
+index_name = 'application_status'
 
 app = Flask(__name__)
 
