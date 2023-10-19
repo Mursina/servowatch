@@ -57,3 +57,10 @@ If the user is secured with password, then pass the password while running the a
 ansible-playbook --ask-become-pass assignment.yml -i inventory -e action=verify_install
 ```
 
+## Test 3
+
+```
+Input file: test3/sales_data.csv
+Output file: test3/filtered-sales-data.csv
+```
+
