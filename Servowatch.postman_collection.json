@@ -1,0 +1,99 @@
+{
+	"info": {
+		"_postman_id": "4da8362a-6922-4b36-98c1-f2381cef7376",
+		"name": "Servowatch",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12734546"
+	},
+	"item": [
+		{
+			"name": "add",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/D:/mur_dev/interview/servowatch/postgres-UP-20231019215019.json"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{endpoint}}/add",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "health_check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{endpoint}}/healthcheck",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"healthcheck"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "healthcheck by service_name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{endpoint}}/healthcheck/<service_name>",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"healthcheck",
+						"<service_name>"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "endpoint",
+			"value": "http://localhost:5000",
+			"type": "string"
+		}
+	]
+}
