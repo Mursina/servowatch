@@ -28,11 +28,27 @@ def add():
 
 @app.route('/healthcheck', methods=['GET'])
 def healthcheck():
-    pass
+    try:
+        result = es.search(index=index_name, size=10000)
+        hits = result['hits']['hits']
+        application_statuses = []
+        for hit in hits:
+            application_statuses.append(hit['_source'])
+        return jsonify(application_statuses)
+    except Exception as e:
+        return str(e), 500
 
 @app.route('/healthcheck/<service_name>', methods=['GET'])
-def healthcheck_by_service():
-    pass
+def healthcheck_by_service(service_name):
+    try:
+        result = es.search(index=index_name, body={"query": {"match": {"service_name": service_name}}})
+        hits = result['hits']['hits']
+        application_statuses = []
+        for hit in hits:
+            application_statuses.append(hit['_source'])
+        return jsonify(application_statuses)
+    except Exception as e:
+        return str(e), 500
 
 if __name__ == '__main__':
     app.run()
