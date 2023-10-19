@@ -30,4 +30,5 @@ for service in services:
     file_name = f'{service}-{service_status}-{time_stamp}.json'
     with open(file_name, 'w') as json_file:
         json.dump(status_obj, json_file, indent=4)
-    
+
+print("Service status files created.")
