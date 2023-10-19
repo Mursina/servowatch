@@ -32,3 +32,7 @@ pip install -r requirements.txt
 python -m monitor_service
 ```
 
+### Run the flask application
+```
+python -m app
+```
