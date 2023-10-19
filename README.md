@@ -31,14 +31,14 @@ pip install -r requirements.txt
 ### Run the script
 
 ```
-python -m monitor_service
+python -m test1a.monitor_services
 ```
 
 ## Test 1 b)
 
 ### Run the flask application
 ```
-python -m app
+python -m test1b.app
 ```
 
 ### Elasticsearch Configuration
@@ -47,5 +47,5 @@ Installation guide is available [here](https://www.elastic.co/guide/en/elasticse
 
 Access elasticsearch via http://localhost:9200
 
-**Note**: the postman collection is available in the same repo with the name Servowatch.postman_collection.json
+**Note**: the postman collection is available in the same repo with the name test1b/Servowatch.postman_collection.json
 

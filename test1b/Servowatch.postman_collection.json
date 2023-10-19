@@ -17,7 +17,7 @@
 						{
 							"key": "file",
 							"type": "file",
-							"src": "/D:/mur_dev/interview/servowatch/postgres-UP-20231019215019.json"
+							"src": "/D:/mur_dev/interview/servowatch/postgres-UP-20231019221903.json"
 						}
 					]
 				},
@@ -56,13 +56,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{endpoint}}/healthcheck/<service_name>",
+					"raw": "{{endpoint}}/healthcheck/postgres",
 					"host": [
 						"{{endpoint}}"
 					],
 					"path": [
 						"healthcheck",
-						"<service_name>"
+						"postgres"
 					]
 				}
 			},
