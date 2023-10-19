@@ -11,7 +11,12 @@ app = Flask(__name__)
 
 @app.route('/add', methods=['POST'])
 def add():
-    pass
+    try:
+        data = request.get_json()
+        es.index(index=index_name, body=data)
+        return "Data added to Elasticsearch", 201
+    except Exception as e:
+        return str(e), 500
 
 @app.route('/healthcheck', methods=['GET'])
 def healthcheck():
