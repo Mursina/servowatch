@@ -25,3 +25,10 @@ Activate,
 ```
 pip install -r requirements.txt
 ```
+
+### Run the script
+
+```
+python -m monitor_service
+```
+

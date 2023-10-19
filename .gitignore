@@ -1,2 +1,8 @@
-*penv
+# Virtual Environment
+penv
+
+# Debugging
 .vscode
+
+# Byte-compiled
+__pycache__/
