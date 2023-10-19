@@ -5,6 +5,7 @@
   tasks:
     - name: Verify Installation
       when: action == "verify_install"
+      become: yes
       block:
         - name: Check if httpd is installed
           ansible.builtin.shell: "dpkg -l | grep apache2 || true"

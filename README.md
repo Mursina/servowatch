@@ -49,3 +49,11 @@ Access elasticsearch via http://localhost:9200
 
 **Note**: the postman collection is available in the same repo with the name test1b/Servowatch.postman_collection.json
 
+## Test 2
+
+If the user is secured with password, then pass the password while running the ansible command like below,
+
+```
+ansible-playbook --ask-become-pass assignment.yml -i inventory -e action=verify_install
+```
+
