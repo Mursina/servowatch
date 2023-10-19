@@ -25,3 +25,4 @@ for row in data:
 
 average_price_per_sqft = total_price_per_sqft / count
 
+filtered_data = [row for row in data if float(row["price"]) / float(row["sq__ft"]) < average_price_per_sqft]
