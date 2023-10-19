@@ -26,3 +26,11 @@ for row in data:
 average_price_per_sqft = total_price_per_sqft / count
 
 filtered_data = [row for row in data if float(row["sq__ft"]) > 0 and float(row["price"]) / float(row["sq__ft"]) < average_price_per_sqft]
+
+with open(output_file, "w", newline="") as csvfile:
+    fieldnames = data[0].keys()
+    writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+    writer.writeheader()
+    writer.writerows(filtered_data)
+
+print(f"Filtered data saved to {output_file}")
