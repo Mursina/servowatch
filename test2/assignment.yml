@@ -1,0 +1,55 @@
+---
+- name: Perform Monitoring and Management Tasks
+  hosts: all
+  gather_facts: yes
+  tasks:
+    - name: Verify Installation
+      when: action == "verify_install"
+      block:
+        - name: Check if httpd is installed
+          ansible.builtin.shell: "dpkg -l | grep apache2 || true"
+          ignore_errors: yes
+          register: httpd_installed
+
+        - name: Install httpd if not installed
+          apt:
+            name: apache2
+            state: present
+          when: httpd_installed.rc != 0
+
+    - name: Check Disk Space
+      when: action == "check-disk"
+      block:
+        - name: Get Disk Usage
+          ansible.builtin.shell: df -h
+          register: disk_usage
+
+        - name: Email Alert if Disk Usage > 80%
+          debug:
+            msg: "Disk usage exceeds 80%: {{ disk_usage.stdout }}"
+          when: "'80%' in disk_usage.stdout"
+
+    - name: Check Status
+      when: action == "check-status"
+      block:
+        - name: Get Application Status
+          uri:
+            url: "http://localhost:5000/healthcheck"
+            return_content: yes
+          register: app_status
+
+        - name: Get Services with Status "DOWN"
+          uri:
+            url: "http://localhost:5000/healthcheck"
+            return_content: yes
+          register: services_down
+          vars:
+            serviceName: "rbcapp1"
+          
+        - name: Display Application Status
+          debug:
+            var: app_status.json
+
+        - name: Display Services with Status "DOWN"
+          debug:
+            var: services_down.json
